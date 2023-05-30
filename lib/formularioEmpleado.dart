@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class MiFormulario2 extends StatefulWidget {
-  const MiFormulario2({super.key});
+class FormularioEmpleado extends StatefulWidget {
+  const FormularioEmpleado({super.key});
 
   @override
-  MiFormProductos2 createState() {
-    return MiFormProductos2();
+  Empleado createState() {
+    return Empleado();
   }
 }
 
-class MiFormProductos2 extends State<MiFormulario2> {
+class Empleado extends State<FormularioEmpleado> {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -21,8 +21,8 @@ class MiFormProductos2 extends State<MiFormulario2> {
         children: [
           TextFormField(
             decoration: const InputDecoration(
-                hintText: "Ingrese su ID",
-                labelText: "ID",
+                hintText: "Ingrese su IdEmpleado",
+                labelText: "IdEmpleado",
                 prefixIcon: Icon(
                   Icons.verified_user_outlined,
                   color: Color(0xff2f1913),
@@ -56,34 +56,52 @@ class MiFormProductos2 extends State<MiFormulario2> {
           ),
           TextFormField(
             decoration: const InputDecoration(
-                hintText: "Ingrese su Apellido Paterno",
-                labelText: "Apellido Paterno",
+                hintText: "Ingrese su Apellido",
+                labelText: "Apellido",
                 prefixIcon: Icon(
                   Icons.account_box_rounded,
                   color: Color(0xff2f1913),
                 )),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Por favor, ingrese su apellido paterno.';
+                return 'Por favor, ingrese su apellido.';
               } else if (!RegExp(r"[a-zA-Z ]+|\s").hasMatch(value)) {
-                return "Por favor, introduce un apellido paterno valido";
+                return "Por favor, introduce un apellido valido";
               }
               return null;
             },
           ),
           TextFormField(
             decoration: const InputDecoration(
-                hintText: "Ingrese su Apellido Materno",
-                labelText: "Apellido Materno",
+                hintText: "Ingrese su Clave de trabajador",
+                labelText: "ClaveDeTrabajador",
                 prefixIcon: Icon(
-                  Icons.account_box_rounded,
+                  Icons.verified_user_outlined,
+                  color: Color(0xff2f1913),
+                )),
+            // The validator receives the text that the user has entered.
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Por favor, escriba su Clave de trabajador';
+              } else if (!RegExp(r'[0-9]+[,.]{0,1}[0-9]*').hasMatch(value)) {
+                return "Por favor introduce una Clave de trabajador";
+              }
+              return null;
+            },
+          ),
+          TextFormField(
+            decoration: const InputDecoration(
+                hintText: "Ingrese su puesto",
+                labelText: "Puesto",
+                prefixIcon: Icon(
+                  Icons.group,
                   color: Color(0xff2f1913),
                 )),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Por favor, ingrese su apellido materno.';
+                return 'Por favor, ingrese su puesto.';
               } else if (!RegExp(r"[a-zA-Z ]+|\s").hasMatch(value)) {
-                return "Por favor, introduce un apellido materno valido";
+                return "Por favor, introduce un puesto valido";
               }
               return null;
             },
@@ -107,21 +125,6 @@ class MiFormProductos2 extends State<MiFormulario2> {
           ),
           TextFormField(
             decoration: const InputDecoration(
-                hintText: "Ingrese su dirección",
-                labelText: "Dirección",
-                prefixIcon: Icon(
-                  Icons.add_location_rounded,
-                  color: Color(0xff2f1913),
-                )),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Por favor, ingrese su dirección.';
-              }
-              return null;
-            },
-          ),
-          TextFormField(
-            decoration: const InputDecoration(
                 hintText: "Ingrese su teléfono",
                 labelText: "Teléfono",
                 prefixIcon: Icon(
@@ -133,6 +136,21 @@ class MiFormProductos2 extends State<MiFormulario2> {
                 return 'Por favor, ingrese su teléfono.';
               } else if (!RegExp(r'[0-9]+[,.]{0,1}[0-9]*').hasMatch(value)) {
                 return "Por favor introduce un teléfono valido";
+              }
+              return null;
+            },
+          ),
+          TextFormField(
+            decoration: const InputDecoration(
+                hintText: "Ingrese su fecha de ingreso",
+                labelText: "Fecha de Ingreso",
+                prefixIcon: Icon(
+                  Icons.insert_invitation_outlined,
+                  color: Color(0xff2f1913),
+                )),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Por favor, ingrese su fecha de ingreso';
               }
               return null;
             },

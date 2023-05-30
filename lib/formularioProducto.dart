@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class MiFormulario1 extends StatefulWidget {
-  const MiFormulario1({super.key});
+class FormularioProducto extends StatefulWidget {
+  const FormularioProducto({super.key});
 
   @override
-  MiFormProductos createState() {
-    return MiFormProductos();
+  Producto createState() {
+    return Producto();
   }
 }
 
-class MiFormProductos extends State<MiFormulario1> {
+class Producto extends State<FormularioProducto> {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -21,10 +21,10 @@ class MiFormProductos extends State<MiFormulario1> {
         children: [
           TextFormField(
             decoration: const InputDecoration(
-                hintText: "Ingrese su ID",
-                labelText: "ID",
+                hintText: "Ingrese el IdProducto",
+                labelText: "IdProducto",
                 prefixIcon: Icon(
-                  Icons.verified_user_outlined,
+                  Icons.info,
                   color: Color(0xff2f1913),
                 )),
             // The validator receives the text that the user has entered.
@@ -42,7 +42,7 @@ class MiFormProductos extends State<MiFormulario1> {
                 hintText: "Ingrese el nombre",
                 labelText: "Nombre",
                 prefixIcon: Icon(
-                  Icons.shopping_cart,
+                  Icons.near_me,
                   color: Color(0xff2f1913),
                 )),
             validator: (value) {
@@ -56,42 +56,42 @@ class MiFormProductos extends State<MiFormulario1> {
           ),
           TextFormField(
             decoration: const InputDecoration(
-                hintText: "Ingrese su precio",
-                labelText: "Precio",
+                hintText: "Ingrese su talla",
+                labelText: "Talla",
                 prefixIcon: Icon(
-                  Icons.money,
+                  Icons.cookie_rounded,
                   color: Color(0xff2f1913),
                 )),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Por favor, ingrese el precio';
+                return 'Por favor, ingrese la talla';
               } else if (!RegExp(r'[0-9]+[,.]{0,1}[0-9]*').hasMatch(value)) {
-                return "Por favor, introduce un precio valido";
+                return "Por favor, introduce una talla valida";
               }
               return null;
             },
           ),
           TextFormField(
             decoration: const InputDecoration(
-                hintText: "Ingrese la descripción",
-                labelText: "Descripción",
+                hintText: "Ingrese su color",
+                labelText: "Color",
                 prefixIcon: Icon(
-                  Icons.assignment,
+                  Icons.precision_manufacturing_outlined,
                   color: Color(0xff2f1913),
                 )),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Por favor, ingrese correctamente la descripción';
+                return 'Por favor, ingrese correctamente el color';
               } else if (!RegExp(r"[a-zA-Z ]+|\s").hasMatch(value)) {
-                return "Por favor, introduce una descripción valida";
+                return "Por favor, introduce un color valido";
               }
               return null;
             },
           ),
           TextFormField(
             decoration: const InputDecoration(
-                hintText: "Ingrese la cantidad",
-                labelText: "Cantidad",
+                hintText: "Ingrese el stock",
+                labelText: "Stock",
                 prefixIcon: Icon(
                   Icons.dynamic_feed_rounded,
                   color: Color(0xff2f1913),
@@ -107,8 +107,8 @@ class MiFormProductos extends State<MiFormulario1> {
           ),
           TextFormField(
             decoration: const InputDecoration(
-                hintText: "Ingrese la categoría",
-                labelText: "Categoría",
+                hintText: "Ingrese el tipo",
+                labelText: "Tipo",
                 prefixIcon: Icon(
                   Icons.category_rounded,
                   color: Color(0xff2f1913),
@@ -117,17 +117,17 @@ class MiFormProductos extends State<MiFormulario1> {
               if (value == null || value.isEmpty) {
                 return 'Por favor, ingrese correctamente la categoría';
               } else if (!RegExp(r"[a-zA-Z ]+|\s").hasMatch(value)) {
-                return "Por favor, introduce una categoría valida";
+                return "Por favor, introduce un tipo valida";
               }
               return null;
             },
           ),
           TextFormField(
             decoration: const InputDecoration(
-                hintText: "Ingrese su paquete",
-                labelText: "Paquete",
+                hintText: "Ingrese su precio",
+                labelText: "Precio",
                 prefixIcon: Icon(
-                  Icons.grid_view_rounded,
+                  Icons.attach_money,
                   color: Color(0xff2f1913),
                 )),
             validator: (value) {
@@ -164,7 +164,7 @@ class MiFormProductos extends State<MiFormulario1> {
               },
               style: TextButton.styleFrom(
                   foregroundColor: const Color(0xfff2f2f2),
-                  backgroundColor: const Color(0xffb50303)),
+                  backgroundColor: const Color(0xffff2b2b)),
               child: const Text(
                 "Enviar",
                 style: TextStyle(fontSize: 20),

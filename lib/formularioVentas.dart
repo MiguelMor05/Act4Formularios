@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class MiFormulario4 extends StatefulWidget {
-  const MiFormulario4({super.key});
+class FormularioVentas extends StatefulWidget {
+  const FormularioVentas({super.key});
 
   @override
-  MiFormProductos4 createState() {
-    return MiFormProductos4();
+  Ventas createState() {
+    return Ventas();
   }
 }
 
-class MiFormProductos4 extends State<MiFormulario4> {
+class Ventas extends State<FormularioVentas> {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -21,8 +21,8 @@ class MiFormProductos4 extends State<MiFormulario4> {
         children: [
           TextFormField(
             decoration: const InputDecoration(
-                hintText: "Ingrese el ID",
-                labelText: "ID",
+                hintText: "Ingrese el IdProducto",
+                labelText: "IdProducto",
                 prefixIcon: Icon(
                   Icons.verified_user_outlined,
                   color: Color(0xff2f1913),
@@ -39,44 +39,46 @@ class MiFormProductos4 extends State<MiFormulario4> {
           ),
           TextFormField(
             decoration: const InputDecoration(
-                hintText: "Ingrese su nombre",
-                labelText: "Nombre",
+                hintText: "Ingrese el IdUsuario",
+                labelText: "IdUsusario",
                 prefixIcon: Icon(
-                  Icons.grid_view_rounded,
+                  Icons.verified_user_outlined,
                   color: Color(0xff2f1913),
                 )),
+            // The validator receives the text that the user has entered.
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Por favor, ingrese correctamente el nombre.';
-              } else if (!RegExp(r"[a-zA-Z ]+|\s").hasMatch(value)) {
-                return "Por favor, introduce un nombre valido";
+                return 'Por favor, escriba el ID';
+              } else if (!RegExp(r'[0-9]+[,.]{0,1}[0-9]*').hasMatch(value)) {
+                return "Por favor introduce un ID valido";
               }
               return null;
             },
           ),
           TextFormField(
             decoration: const InputDecoration(
-                hintText: "Ingrese su Tipo de paquete",
-                labelText: "Tipo de paquete",
+                hintText: "Ingrese el IdEmpleado",
+                labelText: "IdEmpleado",
                 prefixIcon: Icon(
-                  Icons.group_work_sharp,
+                  Icons.verified_user_outlined,
                   color: Color(0xff2f1913),
                 )),
+            // The validator receives the text that the user has entered.
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Por favor, ingrese el tipo de paquete';
-              } else if (!RegExp(r"[a-zA-Z ]+|\s").hasMatch(value)) {
-                return "Por favor, introduce un tipo de paquete valido";
+                return 'Por favor, escriba el ID';
+              } else if (!RegExp(r'[0-9]+[,.]{0,1}[0-9]*').hasMatch(value)) {
+                return "Por favor introduce un ID valido";
               }
               return null;
             },
           ),
           TextFormField(
             decoration: const InputDecoration(
-                hintText: "Ingrese la cantidad de dulces",
-                labelText: "Dulces",
+                hintText: "Ingrese la cantidad de stock",
+                labelText: "Stock",
                 prefixIcon: Icon(
-                  Icons.local_attraction,
+                  Icons.dynamic_feed_rounded,
                   color: Color(0xff2f1913),
                 )),
             validator: (value) {
@@ -90,17 +92,17 @@ class MiFormProductos4 extends State<MiFormulario4> {
           ),
           TextFormField(
             decoration: const InputDecoration(
-                hintText: "Ingrese su fiesta",
-                labelText: "Fiesta",
+                hintText: "Ingrese su metodo de pago",
+                labelText: "MetodoDePago",
                 prefixIcon: Icon(
-                  Icons.family_restroom_rounded,
+                  Icons.card_giftcard,
                   color: Color(0xff2f1913),
                 )),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Por favor, ingrese su fiesta.';
+                return 'Por favor, ingrese su metodo de pago.';
               } else if (!RegExp(r"[a-zA-Z ]+|\s").hasMatch(value)) {
-                return "Por favor, introduce una fiesta valida";
+                return "Por favor, introduce un metodo de pago.";
               }
               return null;
             },
@@ -159,8 +161,9 @@ class MiFormProductos4 extends State<MiFormulario4> {
                 }
               },
               style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xfff2f2f2),
-                  backgroundColor: const Color(0xffb50303)),
+                foregroundColor: const Color(0xfff2f2f2),
+                backgroundColor: const Color(0xffb50303),
+              ),
               child: const Text(
                 "Enviar",
                 style: TextStyle(fontSize: 20),

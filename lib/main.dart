@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ibarra/formulario1.dart';
-import 'package:ibarra/formulario2.dart';
-import 'package:ibarra/formulario3.dart';
-import 'package:ibarra/formulario4.dart';
+import 'package:moreno/formularioVentas.dart';
+import 'package:moreno/formularioProducto.dart';
+import 'package:moreno/formularioUsuarioCliente.dart';
+import 'package:moreno/formularioEmpleado.dart';
 
 void main() => runApp(const MiAplicacionDulceria());
 
@@ -13,7 +13,7 @@ class MiAplicacionDulceria extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // Application name
-      title: 'Dulcería Alegrías',
+      title: 'Cklass',
       // Application theme data, you can set the colors for the application as
       // you want
       theme: ThemeData(
@@ -21,7 +21,7 @@ class MiAplicacionDulceria extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       // A widget which will be started on application startup
-      home: const MiPaginaInicial(titulo: 'Dulcería Alegrías'),
+      home: const MiPaginaInicial(titulo: 'Cklass'),
     );
   }
 }
@@ -37,30 +37,24 @@ class MiPaginaInicial extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            title: const Text('Dulcería Alegrías'),
-            backgroundColor: const Color(0xffb80303),
+            title: const Text('Cklass'),
+            backgroundColor: const Color(0xffff2e2e),
             elevation: 8,
             bottom: TabBar(
               indicatorColor: Colors.amberAccent,
-              indicator: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20), // Creates border
-                  color: const Color(0xffffffff)),
+              indicator: BoxDecoration(color: const Color(0xffffffff)),
               tabs: [
                 Tab(
-                  icon: Image.network(
-                      'https://cdn-icons-png.flaticon.com/512/2700/2700461.png'),
+                  icon: Image.asset('assets/icons8-zapatillas-50.png'),
                 ),
                 Tab(
-                  icon: Image.network(
-                      'https://cdn-icons-png.flaticon.com/512/3126/3126647.png'),
+                  icon: Image.asset('assets/icons8-grupo-de-usuario-50.png'),
                 ),
                 Tab(
-                  icon: Image.network(
-                      'https://cdn-icons-png.flaticon.com/512/554/554744.png'),
+                  icon: Image.asset('assets/icons8-employ-64.png'),
                 ),
                 Tab(
-                  icon: Image.network(
-                      'https://cdn-icons-png.flaticon.com/512/2729/2729035.png'),
+                  icon: Image.asset('assets/icons8-bolsa-de-compras-50.png'),
                 ),
               ],
             ),
@@ -70,53 +64,53 @@ class MiPaginaInicial extends StatelessWidget {
               ListView(
                 children: const [
                   Text(
-                    "Formulario Productos",
+                    "Registro de productos",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.normal,
                       fontSize: 24,
                     ),
                   ),
-                  MiFormulario1(),
+                  FormularioProducto(),
                 ],
               ),
               ListView(
                 children: const [
                   Text(
-                    "Formulario Clientes",
+                    "Usuarios/Clientes",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.normal,
                       fontSize: 24,
                     ),
                   ),
-                  MiFormulario2(),
+                  FormularioUsuarioCliente(),
                 ],
               ),
               ListView(
                 children: const [
                   Text(
-                    "Formulario Empleados",
+                    "Empleados",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.normal,
                       fontSize: 24,
                     ),
                   ),
-                  MiFormulario3(),
+                  FormularioEmpleado(),
                 ],
               ),
               ListView(
                 children: const [
                   Text(
-                    "Formulario Paquetes Fiesta",
+                    "Ventas",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.normal,
                       fontSize: 24,
                     ),
                   ),
-                  MiFormulario4(),
+                  FormularioVentas(),
                 ],
               ),
             ],
